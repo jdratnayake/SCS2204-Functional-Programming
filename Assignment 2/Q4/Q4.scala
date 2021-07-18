@@ -2,9 +2,17 @@
 
 object Q4 {
   def main(args: Array[String]): Unit = {
-    println(odd(11))
-    println(odd(12))
+    oddEven(11)
+    oddEven(12)
 
+  }
+
+  def oddEven(num: Int): Unit = {
+    if (odd(num)) {
+      printf("%d is an Odd Number\n", num);
+    } else {
+      printf("%d is an Even Number\n", num);
+    }
   }
 
   def even(num: Int): Boolean = num match {

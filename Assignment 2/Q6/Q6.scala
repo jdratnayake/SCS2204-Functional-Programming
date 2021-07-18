@@ -2,14 +2,13 @@
 
 object Q6 {
   def main(args: Array[String]): Unit = {
-    println(fibonacciSeq(10))
+    fibonacciSeq(10)
   }
 
-  def fibonacciSeq(num: Int): Int = {
-    if (num > 0) {
-      fibonacci(num) + fibonacciSeq(num - 1)
-    } else {
-      0
+  def fibonacciSeq(num: Int): Unit = {
+    if (num >= 0) {
+      fibonacciSeq(num - 1)
+      println(fibonacci(num))
     }
   }
 
