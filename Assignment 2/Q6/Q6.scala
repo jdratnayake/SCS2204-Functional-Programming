@@ -1,3 +1,5 @@
+// 19001428
+
 object Q6 {
   def main(args: Array[String]): Unit = {
     println(fibonacciSeq(10))

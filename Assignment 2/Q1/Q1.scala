@@ -1,3 +1,5 @@
+// 19001428
+
 object Q1 {
   def main(args: Array[String]): Unit = {
     println(prime(5))

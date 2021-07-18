@@ -1,3 +1,5 @@
+// 19001428
+
 object Q2 {
   def main(args: Array[String]): Unit = {
     primeSeq(10)
