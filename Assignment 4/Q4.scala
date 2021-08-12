@@ -12,15 +12,21 @@ object Q4{
         var bank:List[Account] = List(acc1, acc2, acc3, acc4, acc5, acc6)
 
         println("Overdraft Account List")
-        acc1.overdraft(bank).foreach(i => println(i))
+        overdraft(bank).foreach(i => println(i))
         println()
 
-        println("Sum of All Accounts: Rs " + acc1.Totalbalance(bank))
+        println("Sum of All Accounts: Rs " + Totalbalance(bank))
         println()
 
-        println("Sum of All Accounts(After Interest): Rs " + acc1.Totalbalance(acc1.interest(bank)))
+        println("Sum of All Accounts(After Interest): Rs " + Totalbalance(interest(bank)))
         println()
     }
+
+    val overdraft = (b:List[Account]) => b.filter(x => x.balance < 0)
+
+    val Totalbalance = (b:List[Account]) => b.reduce((x, y) => new Account("", 0, x.balance + y.balance)).balance
+
+    val interest = (b:List[Account]) => b.map(x => if(x.balance >=0) new Account(x.nic, x.acnumber, x.balance + x.balance * 0.005) else new Account(x.nic, x.acnumber, x.balance + x.balance * 0.01))
 }
 
 class Account(id:String, n:Int, b:Double){
@@ -36,12 +42,6 @@ class Account(id:String, n:Int, b:Double){
     this.withdraw(b)
     a.deposit(b)
   }
-
-  val overdraft = (b:List[Account]) => b.filter(x => x.balance < 0)
-
-  val Totalbalance = (b:List[Account]) => b.reduce((x, y) => new Account("", 0, x.balance + y.balance)).balance
-
-  val interest = (b:List[Account]) => b.map(x => if(x.balance >=0) new Account(x.nic, x.acnumber, x.balance + x.balance * 0.005) else new Account(x.nic, x.acnumber, x.balance + x.balance * 0.01))
 
   override def toString = "[" + this.nic + ":" + this.acnumber + ":" + this.balance + "]"
 }
